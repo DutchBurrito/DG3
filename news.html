@@ -1,81 +1,213 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>News</title>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Looks -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<!-- Looks -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<!-- Buttons -->
+	<!-- Buttons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- CSS -->
+	<!-- CSS -->
 	<link rel="stylesheet" href="css/general.css">
-	<link rel="stylesheet" href="css/news.css">
-		<!-- Dropdown -->
+	<!-- Dropdown -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-1" style="background-color:rgb(163, 163, 163);"><a href="home.html"> <i style="font-size:45px;color:white" class="fa fa-home fa-4x"></i></a></div>
-			<div class="col-sm-1" id="text" style="background-color:rgb(163, 163, 163);color: white;"><button onclick="window.location.href='aboutme.html'">About Me</button></div>
-			<div class="col-sm-1" id="text" style="background-color:rgb(163, 163, 163);color: white;"><button onclick="window.location.href='gallery.html'">Gallery</button></div>
-			<div class="col-sm-1" id="text" style="background-color:rgb(163, 163, 163);color: white;"><button onclick="window.location.href='sub.html'">Subscribe</button></div>
-			<div class="col-sm-1" id="text" style="background-color:rgb(163, 163, 163);color: white;"><button onclick="window.location.href='news.html'">News</button></div>
-			<div class="col-sm-1" id="text" style="background-color:rgb(163, 163, 163);color: white;"><button onclick="window.location.href='review.html'">Comments</button></div>
-			<div class="col-sm-1" id="text" style="background-color:rgb(163, 163, 163);color: white;"><button onclick="window.location.href='search.html'">Search</button></div>
-			<div class="col-sm-2" style="background-color:rgb(163, 163, 163);"><button></button></div>
-			<div class="col-sm-1" style="background-color:rgb(163, 163, 163);"></div>
-			<div class="col-sm-2" style="background-color:rgb(163, 163, 163);"><a href="search.html"> <i style="font-size:30px;color:white;padding-top:10px;" class="fa fa-search fa-4x"></i></a></div>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="home.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="aboutme.html">About me</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Dropdown
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="history.html">History</a></li>
+							<li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+							<li><a class="dropdown-item" href="natuur.html">Natuur</a></li>
+							<li><a class="dropdown-item" href="samenleving.html">Samenleving</a></li>
+							<li><a class="dropdown-item" href="wetenschap.html">Wetenschap</a></li>
+							<li><a class="dropdown-item" href="sub.html">Sub</a></li>
+							<li><a class="dropdown-item" href="review.html">Review</a></li>
+							<li><a class="dropdown-item" href="search.html">Search</a></li>
+						</ul>
+					</li>
+				</ul>
+				<form class="d-flex" role="search">
+					<input id="searchInput" class="form-control me-2" type="search" placeholder="Search for news"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
 		</div>
-	</div>
+	</nav>
 	<header>
-		<h1>Dagelijks nieuws moment</h1>
+		<h1>Dagelijks nieuws moment (<span id="resultCount"></span> results)</h1>
 	</header>
-
-	<div class="catergorie">
-		<h4>categorieën:</h4>
-
-		<p class="aantal">1</p><p><a href="history.html">Geschiedenis</a></p>
-		<p class="aantal">2</p><p><a href="natuur.html">Natuur</a></p>
-		<p class="aantal">3</p><p><a href="Samenleving.html">Samenleving</a></p>
-		<p class="aantal">4</p><p><a href="wetenschap.html">Wetenschap/technologie</a></p>
-
-	</div>
 	<br>
 	<div class="container">
-		<h3>nieuws:</h3><br>
-		<div class="article_6">
-		<a href="">
-			<img border="0" alt="" src="img/history.jpg" width="300">
-			<h2></h2>
+		<div class="row content">
+			<div class="card my-4 mx-2" style="width: 18rem;">
+				<img src="..." class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+						card's content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+
 		</div>
-		<br><br>
-		<div class="article_2">
-		<a href="">
-		<img border="0" alt="" src="img/article_2.jpg" width="300">
-				<h2></h2><br>
+		<div class="d-flex justify-content-around my-4">
+			<button class="btn btn-primary" id="prev">Previous Page</button>
+			<button class="btn btn-primary" id="next">Next Page</button>
 		</div>
-		<div class="article_3">
-				<a href="">
-				<img border="0" alt="" src="img/article_3.jpg" width="300">
-				<h2></h2><br>
-		</div>
-		<div class="article_4">
-				<a href="">
-				<img border="0" alt="" src="img/article_4.jpg" width="300">
-				<h2></h2><br>
-		</div>
-		<div class="article_5">
-				<a href="">
-				<img border="0" alt="" src="img/article_5.jpg" width="300">
-				<h2></h2><br>
-		</div>
-		<div class="article">
-				<a href="">
-				<img border="0" alt="" src="img/article.jpg" width="300">
-				<h2></h2>
-		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+			</script>
+		<script>
+			let currentQuery = "sports"
+			let currentPage = 1;
+			const fetchNews = async (page, q) => {
+				console.log(`Fetching news for ${q}, Page number ${page}...`);
+				var url = 'https://newsapi.org/v2/everything?' +
+					'q=' + q +
+					'&from=2024-01-15&' +
+					'pageSize=20&' +
+					'language=en&' +
+					'page=' + page +
+					'&sortBy=popularity&' +
+					'apiKey=33fb452c33314fe1a382d6f4baeb9c15';
+
+				var req = new Request(url);
+
+				/*
+				let a = await fetch(req)
+				let response = await a.json()
+					console.log(JSON.stringify(response))
+				*/
+
+				let response = {
+					"status": "ok", "totalResults": 5, "articles": [{
+						"source": {
+							"id": "the-next-web",
+							"name": "The Next Web"
+						},
+						"author": "Siôn Geschwindt",
+						"title": "Doomed US lander crushes hopes for first European tech on the Moon",
+						"description": "The Peregrine lunar lander is set to crash back to Earth in a sudden end to a mission that was set to put the first piece of European-built technology — and the human remains of a distinguished British sci-fi author — on the Moon.  Shortly after launching fro…",
+						"url": "https://thenextweb.com/news/peregrine-nasa-european-spacetech-moon",
+						"urlToImage": "https://img-cdn.tnwcdn.com/image/tnw-blurple?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2024%2F01%2Flunar-rover-astrobotic.jpg&signature=37b95247e44af4fcf9d8f50d39486ea4",
+						"publishedAt": "2024-01-15T11:34:28Z",
+						"content": "The Peregrine lunar lander is set to crash back to Earth in a sudden end to a mission that was set to put the first piece of European-built technology and the human remains of a distinguished British… [+3708 chars]"
+					},
+					{
+						"source": {
+							"id": "techcrunch",
+							"name": "TechCrunch"
+						},
+						"author": "Mary Ann Azevedo",
+						"title": "Carta’s missteps and real estate fintech’s up-and-down week",
+						"description": "Welcome to TechCrunch Fintech (formerly The Interchange)! In this edition, I’m going to look at some hits and misses in the real estate fintech space, Carta’s missteps (again), and more! To get a roundup of TechCrunch’s biggest and most important fintech stor…",
+						"url": "https://techcrunch.com/2024/01/14/cartas-missteps-and-real-estate-fintechs-up-and-down-week/",
+						"urlToImage": "https://techcrunch.com/wp-content/uploads/2023/08/GettyImages-1454626095.jpg?resize=1200,800",
+						"publishedAt": "2024-01-14T15:30:05Z",
+						"content": "Welcome to TechCrunch Fintech (formerly The Interchange)! In this edition, Im going to look at some hits and misses in the real estate fintech space, Cartas missteps (again), and more!\r\nTo get a roun… [+3206 chars]"
+					},
+					{
+						"source": {
+							"id": "techcrunch",
+							"name": "TechCrunch"
+						},
+						"author": "Theresa Loconsolo",
+						"title": "When it comes to startups’ flight to quality, have we swung too far in the other direction?",
+						"description": "Listen here or wherever you get your podcasts. Hello, and welcome back to Equity, the podcast about the business of startups, where we unpack the numbers and nuance behind the headlines. This is our new Saturday show, where we sit down with a guest, think abo…",
+						"url": "https://techcrunch.com/2024/01/13/when-it-comes-to-startups-flight-to-quality-have-we-swung-too-far-in-the-other-direction/",
+						"urlToImage": "https://techcrunch.com/wp-content/uploads/2018/02/tc-backlight.png?resize=1200,486",
+						"publishedAt": "2024-01-13T15:05:34Z",
+						"content": "Listen here or wherever you get your podcasts.\r\nHello, and welcome back to Equity, the podcast about the business of startups, where we unpack the numbers and nuance behind the headlines.\r\nThis is ou… [+1263 chars]"
+					},
+					{
+						"source": {
+							"id": "techcrunch",
+							"name": "TechCrunch"
+						},
+						"author": "Amanda Silberling",
+						"title": "Elon Musk’s Twitter a year later: Everything you need to know",
+						"description": "Welcome to Elon Musk’s Twitter (now X), where the rules are made up and the check marks don’t matter. The Tesla and SpaceX CEO announced his bid to buy Twitter in April 2022, zealously driven to rid the platform of spam bots and protect free speech; now, it’s…",
+						"url": "https://techcrunch.com/2024/01/12/elon-musk-twitter-everything-you-need-to-know/",
+						"urlToImage": "https://techcrunch.com/wp-content/uploads/2023/07/x-logo-impales-twitter-bird.jpg?resize=1200,675",
+						"publishedAt": "2024-01-12T16:05:09Z",
+						"content": "Welcome to Elon Musks Twitter (now X), where the rules are made up and the check marks dont matter.\r\nThe Tesla and SpaceX CEO announced his bid to buy Twitter in April 2022, zealously driven to rid t… [+66927 chars]"
+					},
+					{
+						"source": {
+							"id": "the-next-web",
+							"name": "The Next Web"
+						},
+						"author": "Siôn Geschwindt",
+						"title": "Startup behind world’s first hydrogen eVTOL eyes 2025 takeoff",
+						"description": "Swiss startup Sirius Aviation has unveiled designs for the world’s first hydrogen-electric vertical takeoff and landing (eVTOL) aircraft.  The jet, which kind of looks like Night Fury from How to Train Your Dragon, is billed to travel 1,851 km at speeds up to…",
+						"url": "https://thenextweb.com/news/worlds-first-hydrogen-evtol-2025-takeoff",
+						"urlToImage": "https://img-cdn.tnwcdn.com/image/tnw-blurple?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2024%2F01%2Fsirius-hydrogen-jet-1.jpg&signature=263d73c5715f2abf57693362b74c3987",
+						"publishedAt": "2024-01-12T15:38:21Z",
+						"content": "Swiss startup Sirius Aviation has unveiled designs for the worlds first hydrogen-electric vertical takeoff and landing (eVTOL) aircraft. \r\nThe jet, which kind of looks like Night Fury from How to Tra… [+2864 chars]"
+					}]
+				}
+				let str = ""
+				resultCount.innerHTML = response.totalResults
+				for (let item of response.articles) {
+					str = str + `<div class="card my-4 mx-2" style="width: 18rem;">
+								<img src="${item.urlToImage}" class="card-img-top" alt="...">
+								<div class="card-body">
+								<h5 class="card-title">${item.title}</h5>
+								<p class="card-text">${item.description}</p>
+								<a href="${item.url}" target="_blank" class="btn btn-primary">Read Article</a>
+								</div>
+							</div>`
+				}
+				document.querySelector(".content").innerHTML = str
+			}
+			fetchNews(1, currentQuery)
+			search.addEventListener("click", (e) => {
+				e.preventDefault()
+				let query = searchInput.value;
+				currentQuery = query
+				fetchNews(1, query)
+			})
+			prev.addEventListener("click", (e) => {
+				e.preventDefault()
+				if (currentPage > 1) {
+					currentPage = currentPage - 1
+					fetchNews(currentPage, currentQuery)
+				}
+			})
+			next.addEventListener("click", (e) => {
+				e.preventDefault()
+				currentPage = currentPage + 1
+				fetchNews(currentPage, currentQuery)
+			})
+		</script>
 	</div>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
