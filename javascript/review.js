@@ -23,12 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Append the paragraph element to the existing comment display container
     commentDisplay.appendChild(commentPara);
-
-    // Add the Bootstrap class 'text-white' to the new div
-    commentDiv.classList.add("text-white");
-    commentDiv.classList.add("d-block");
-
-
   });
 });
 
